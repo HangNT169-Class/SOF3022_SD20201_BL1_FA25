@@ -33,4 +33,26 @@ public class SinhVienServiceImpl implements SinhVienService {
         return null;
     }
 
+    @Override
+    public void add(SinhVien sv) {
+        listSinhVien.add(sv);
+    }
+
+    @Override
+    public void xoaSinhVien(String mssv) {
+        listSinhVien.removeIf(sv->sv.getMssv().equalsIgnoreCase(mssv));
+    }
+
+    @Override
+    public SinhVien detailSinhVien(String mssv) {
+        return listSinhVien.stream()
+                .filter(s->s.getMssv().equalsIgnoreCase(mssv))
+                .findFirst().orElse(null);
+    }
+
+    @Override
+    public void updateSinhVien(String mssv, SinhVien updateSinhVien) {
+
+    }
+
 }

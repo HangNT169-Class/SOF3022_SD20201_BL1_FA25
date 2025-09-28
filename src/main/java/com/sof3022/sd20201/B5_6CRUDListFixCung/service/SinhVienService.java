@@ -14,4 +14,13 @@ public interface SinhVienService {
 
     SinhVien detail(String id);
 
+    void add(SinhVien sv);
+
+    void xoaSinhVien(String mssv);
+
+    SinhVien detailSinhVien(String mssv);
+
+    void updateSinhVien(String mssv, SinhVien updateSinhVien);
+
+
 }

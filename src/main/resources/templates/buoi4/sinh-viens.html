@@ -34,7 +34,7 @@
         <li th:text="${sv.mssv}"></li>
     </template>
 </ul>
-<table border="1">
+<table border="1" cellpadding="10" cellspacing="0">
     <thead>
     <tr>
         <th>MSSV</th>
@@ -47,17 +47,26 @@
     </thead>
     <tbody>
     <!-- Cu phap:
-    ${}
-    *{}
-    @{}
+    ${}: truyen ten bien(controller)
+    *{}: truyen cac thuoc tinh cua 1 doi tuong Object => th:field & th:object
+    @{}: duong dan => truyen 1 gia tri gi do tren duong dan
     for(SinhVien sv: lists)
       -->
+<!--    ${sv.mssv}-->
+<!--    /sinh-vien/test?a=abc => @{}-->
+<!--    /sinh-vien/add => href -->
     <tr th:each="sv : ${list1}">
         <td th:text="${sv.mssv}"></td>
         <td th:text="${sv.ten}"></td>
         <td th:text="${sv.tuoi}"></td>
         <td th:text="${sv.diaChi}"></td>
         <td th:text="${sv.gioiTinh}"></td>
+        <td>
+            <a th:href="@{/sinh-vien/detail/{ma}(ma=${sv.mssv})}">Detail</a>
+<!--            <a href="/sinh-vien/delete?id=${sv.mssv}">Delete</a>-->
+            <a th:href="@{/sinh-vien/delete/{ma1}(ma1=${sv.mssv})}">Delete</a>
+            <a th:href="@{/sinh-vien/view-update/{ma}(ma=${sv.mssv})}">Update</a>
+        </td>
     </tr>
     </tbody>
 </table>
