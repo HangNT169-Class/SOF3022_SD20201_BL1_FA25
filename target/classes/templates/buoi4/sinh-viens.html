@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+</head>
+<body>
+<h1>Header</h1>
+<form>
+    <label for="search">Tên:</label>
+    <input type="text" id="search" name="search">
+    <button type="submit">Search</button>
+</form>
+<button><a href="/sinh-vien/view-add">Add Student</a></button>
+<!--Combobox-->
+<!--C1: ro rang-->
+<select>
+    <option th:each="sv1 : ${list1}">
+        <span th:text="${sv1.mssv}"></span>
+    </option>
+</select>
+<br/>
+<!--C2: rut gon 1 the co chua nhieu th-->
+<select>
+    <option th:each="sv1 : ${list1}"
+            th:text="${sv1.mssv}"
+            th:value="${sv1.mssv}">
+    </option>
+</select>
+<!--ul & li-->
+<ul>
+    <template th:each ="sv :${list1}">
+        <li th:text="${sv.mssv}"></li>
+    </template>
+</ul>
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+    <tr>
+        <th>MSSV</th>
+        <th>Tên</th>
+        <th>Tuổi</th>
+        <th>Địa chỉ</th>
+        <th>Giới tính</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Cu phap:
+    ${}: truyen ten bien(controller)
+    *{}: truyen cac thuoc tinh cua 1 doi tuong Object => th:field & th:object
+    @{}: duong dan => truyen 1 gia tri gi do tren duong dan
+    for(SinhVien sv: lists)
+      -->
+<!--    ${sv.mssv}-->
+<!--    /sinh-vien/test?a=abc => @{}-->
+<!--    /sinh-vien/add => href -->
+    <tr th:each="sv : ${list1}">
+        <td th:text="${sv.mssv}"></td>
+        <td th:text="${sv.ten}"></td>
+        <td th:text="${sv.tuoi}"></td>
+        <td th:text="${sv.diaChi}"></td>
+        <td th:text="${sv.gioiTinh}"></td>
+        <td>
+            <a th:href="@{/sinh-vien/detail/{ma}(ma=${sv.mssv})}">Detail</a>
+<!--            <a href="/sinh-vien/delete?id=${sv.mssv}">Delete</a>-->
+            <a th:href="@{/sinh-vien/delete/{ma1}(ma1=${sv.mssv})}">Delete</a>
+            <a th:href="@{/sinh-vien/view-update/{ma}(ma=${sv.mssv})}">Update</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!--
+Dung luon listSinhVien
+1. Load mssv - ten len combobox
+2. Load mssv - ten len ul/li
+-->
+<h1>Footer</h1>
+</body>
+</html>
