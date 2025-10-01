@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("sinh-vien/")
@@ -65,4 +68,11 @@ public class SinhVienController {
         return "redirect:/sinh-vien/hien-thi";
     }
 
+
+    @ResponseBody
+    @GetMapping("/lists")
+    // localhost:8080/sinh-vien/lists
+    public List<SinhVien>getAllSinhVien(){
+        return sinhVienService.getList1();
+    }
 }

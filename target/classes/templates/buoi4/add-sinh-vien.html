@@ -29,11 +29,12 @@
     <br><br>
 
     <label>Giới tính:</label>
-    <input type="radio" id="male" name="gioiTinh" value="true" checked th:field="*{gioiTinh}">
+    <input type="radio" id="male" name="gioiTinh" value="true" th:field="*{gioiTinh}">
     <label for="male">Nam</label>
     <input type="radio" id="female" name="gioiTinh" value="false" th:field="*{gioiTinh}">
-    <label for="female">Nữ</label><br><br>
+    <label for="female">Nữ</label>
     <span style="color: red" th:errors="*{gioiTinh}"></span>
+    <br><br>
 
     <button type="submit">Add</button>
 </form>
