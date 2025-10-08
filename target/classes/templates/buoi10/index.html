@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="#">Add</a>
+<table>
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cate,i:${listCate}">
+        <td th:text="${i.count}"></td>
+        <td th:text="${cate.id}"></td>
+        <td th:text="${cate.categoryName}"></td>
+        <td th:text="${cate.categoryCode}"></td>
+        <td>
+            <a href="#">Delete</a>
+            <a href="#">Update</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

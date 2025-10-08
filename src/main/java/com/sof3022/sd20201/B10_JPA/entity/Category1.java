@@ -31,5 +31,8 @@ public class Category1 {
 
     @Column(name = "category_name")
     private String categoryName;
+    // 1 Cate -> N Product
+    // 1 Product -> 1 Cate
+//    @OneTo
 
 }

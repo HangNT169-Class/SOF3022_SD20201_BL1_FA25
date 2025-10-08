@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select>
+    <option th:each="p:${listCate}" th:value="${p.id}" th:text="${p.categoryName}"></option>
+</select>
+<a href="#">Add</a>
+<table border="1" cellspacing="0" cellpadding="10">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>P.ID</th>
+        <th>P.Name</th>
+        <th>P.Code</th>
+        <th>P.Price</th>
+        <th>P.Description</th>
+        <th>C.Code</th>
+        <th>C.Name</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p,i:${lists}">
+        <td th:text="${i.count}"></td>
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.productName}"></td>
+        <td th:text="${p.productCode}"></td>
+        <td th:text="${p.price}"></td>
+        <td th:text="${p.description}"></td>
+        <td th:text="${p.cate.categoryCode}"></td>
+        <td th:text="${p.cate.categoryName}"></td>
+        <td>
+            <a href="#">Delete</a>
+            <a href="#">Update</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
